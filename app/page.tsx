@@ -1,25 +1,19 @@
+import React from "react";
+import Hero from "@/components/Hero";
+import RecipeList from "@/components/RecipeList";
 import { fetchRecipes } from "./action";
-import RecipeList from "../components/RecipeList";
+import { RecipeProp } from "@/components/RecipeCard";
 
-async function Home() {
-  const data = await fetchRecipes();
-
-
-  const recipes = data.map((item) => ({
-    id: item.id,
-    recipe: item.recipe,
-    image: item.image,
-    difficulty: item.difficulty,
-    calories: item.calories,
-  }));
+export default async function Home() {
+  const data: RecipeProp[] = await fetchRecipes();
 
   return (
-    <main className="sm:p-16 py-16 px-8 flex flex-col gap-10">
-      <h2 className="text-3xl text-white font-bold">Explore Recipes</h2>
-
-      <RecipeList initialData={recipes} />
-    </main>
+    <>
+      <Hero />
+      <main className="sm:p-16 py-16 px-8 flex flex-col gap-10">
+        <h2 className="text-3xl text-white font-bold">Explore Recipes</h2>
+        <RecipeList initialData={data} />
+      </main>
+    </>
   );
 }
-
-export default Home;
