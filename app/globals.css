@@ -16,3 +16,49 @@ body {
 :root {
   color-scheme: dark;
 }
+
+
+
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #0F1117; /* Background color matching your site's theme */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50; /* Ensure it appears above other elements */
+}
+
+.spinner {
+  width: 64px;
+  height: 64px;
+  position: relative;
+}
+
+.double-bounce1,
+.double-bounce2 {
+  width: 100%;
+  height: 100%;
+  background-color: #FFAD49; /* Accent color for the loader */
+  border-radius: 50%;
+  opacity: 0.6;
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: bounce 2.0s infinite ease-in-out;
+}
+
+.double-bounce2 {
+  animation-delay: -1.0s;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: scale(0.0);
+  } 50% {
+    transform: scale(1.0);
+  }
+}
