@@ -1,3 +1,5 @@
+// components/RecipeCard.tsx
+
 import Image from "next/image";
 import Link from "next/link";
 
@@ -7,6 +9,37 @@ export interface RecipeProp {
   image: string;
   difficulty: string;
   calories: number;
+
+  measurement_1?: number | null;
+  measurement_2?: number | null;
+  measurement_3?: number | null;
+  measurement_4?: number | null;
+  measurement_5?: number | null;
+  measurement_6?: number | null;
+  measurement_7?: number | null;
+  measurement_8?: number | null;
+  measurement_9?: number | null;
+  measurement_10?: number | null;
+  ingredient_1?: string | null;
+  ingredient_2?: string | null;
+  ingredient_3?: string | null;
+  ingredient_4?: string | null;
+  ingredient_5?: string | null;
+  ingredient_6?: string | null;
+  ingredient_7?: string | null;
+  ingredient_8?: string | null;
+  ingredient_9?: string | null;
+  ingredient_10?: string | null;
+  directions_step_1?: string | null;
+  directions_step_2?: string | null;
+  directions_step_3?: string | null;
+  directions_step_4?: string | null;
+  directions_step_5?: string | null;
+  directions_step_6?: string | null;
+  directions_step_7?: string | null;
+  directions_step_8?: string | null;
+  directions_step_9?: string | null;
+  directions_step_10?: string | null;
 }
 
 interface Prop {
