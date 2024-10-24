@@ -44,10 +44,10 @@ export interface RecipeProp {
   directions_step_10?: string | null;
 }
 
-
-type MeasurementKeys = `measurement_${1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10}`;
-type IngredientKeys = `ingredient_${1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10}`;
-type DirectionStepKeys = `directions_step_${1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10}`;
+// Add 'export' keyword to export the types
+export type MeasurementKeys = `measurement_${1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10}`;
+export type IngredientKeys = `ingredient_${1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10}`;
+export type DirectionStepKeys = `directions_step_${1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10}`;
 
 interface Prop {
   recipeData: RecipeProp;
