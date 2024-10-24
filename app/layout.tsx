@@ -1,7 +1,9 @@
+// app/layout.tsx
+
 import type { Metadata } from "next";
 import { DM_Sans } from "next/font/google";
 
-import Hero from "@/components/Hero";
+import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 import "./globals.css";
@@ -9,8 +11,8 @@ import "./globals.css";
 const dmSans = DM_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Anime Vault",
-  description: "Your favorite anime, all in one place.",
+  title: "Keto Recipe Hub",
+  description: "Your source for delicious keto recipes.",
 };
 
 export default function RootLayout({
@@ -20,9 +22,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={dmSans.className}>
-        <main className="max-w-7xl mx-auto bg-[#0F1117]">
-          <Hero />
+      <body className={`${dmSans.className} bg-black text-white`}>
+        <main className="max-w-7xl mx-auto">
+          <Navbar />
           {children}
           <Footer />
         </main>
