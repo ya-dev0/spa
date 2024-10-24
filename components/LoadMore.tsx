@@ -1,36 +1,39 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { fetchMovies } from "../app/action";
-import MovieCard, { MovieProp } from "./MovieCard";
-import Image from "next/image";
+import { useState } from "react";
+import RecipeCard, { RecipeProp } from "./RecipeCard";
 
-function LoadMore() {
-  const [data, setData] = useState<MovieProp[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
+interface LoadMoreProps {
+  data: RecipeProp[];
+}
 
-  useEffect(() => {
-    fetchMovies().then((res) => {
-      setData(res);
-      setIsLoading(false);
-    });
-  }, []);
+function LoadMore({ data }: LoadMoreProps) {
+  const [visibleData, setVisibleData] = useState<RecipeProp[]>(data.slice(0, 10));
 
-  if (isLoading) {
-    return (
-      <div className="flex justify-center items-center w-full">
-        <Image
-          src="/spinner.svg"
-          alt="Loading spinner"
-          width={56}
-          height={56}
-          className="object-contain"
-        />
-      </div>
-    );
-  }
+  const handleLoadMore = () => {
+    const newLength = visibleData.length + 10;
+    setVisibleData(data.slice(0, newLength));
+  };
 
-  return null;
+  return (
+    <>
+      <section className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-10">
+        {visibleData.map((recipeData) => (
+          <RecipeCard key={recipeData.id} recipeData={recipeData} />
+        ))}
+      </section>
+      {visibleData.length < data.length && (
+        <div className="flex justify-center mt-4">
+          <button
+            onClick={handleLoadMore}
+            className="px-4 py-2 bg-blue-500 text-white rounded"
+          >
+            Load More
+          </button>
+        </div>
+      )}
+    </>
+  );
 }
 
 export default LoadMore;
