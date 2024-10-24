@@ -1,6 +1,13 @@
+// app/recipe/[id]/page.tsx
+
 import { fetchRecipes } from "@/app/action";
 import Image from "next/image";
-import { RecipeProp, MeasurementKeys, IngredientKeys, DirectionStepKeys } from "@/components/RecipeCard";
+import {
+  RecipeProp,
+  MeasurementKeys,
+  IngredientKeys,
+  DirectionStepKeys,
+} from "@/components/RecipeCard";
 
 interface RecipeDetailProps {
   params: {
