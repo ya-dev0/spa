@@ -1,5 +1,6 @@
 import { fetchRecipes } from "@/app/action";
 import Image from "next/image";
+import { RecipeProp } from "@/components/RecipeCard";
 
 interface RecipeDetailProps {
   params: {
@@ -8,7 +9,7 @@ interface RecipeDetailProps {
 }
 
 async function RecipeDetail({ params }: RecipeDetailProps) {
-  const data = await fetchRecipes();
+  const data: RecipeProp[] = await fetchRecipes();
 
   const recipe = data.find(
     (item) => item.id.toString() === params.id
