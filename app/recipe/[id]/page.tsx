@@ -1,6 +1,6 @@
 import { fetchRecipes } from "@/app/action";
 import Image from "next/image";
-import { RecipeProp } from "@/components/RecipeCard";
+import { RecipeProp, MeasurementKeys, IngredientKeys, DirectionStepKeys } from "@/components/RecipeCard";
 
 interface RecipeDetailProps {
   params: {
@@ -11,9 +11,7 @@ interface RecipeDetailProps {
 async function RecipeDetail({ params }: RecipeDetailProps) {
   const data: RecipeProp[] = await fetchRecipes();
 
-  const recipe = data.find(
-    (item) => item.id.toString() === params.id
-  );
+  const recipe = data.find((item) => item.id.toString() === params.id);
 
   if (!recipe) {
     return <p className="text-white">Recipe not found.</p>;
@@ -22,8 +20,12 @@ async function RecipeDetail({ params }: RecipeDetailProps) {
   // Extract ingredients and directions
   const ingredients = [];
   for (let i = 1; i <= 10; i++) {
-    const measurement = recipe[`measurement_${i}`];
-    const ingredient = recipe[`ingredient_${i}`];
+    const measurementKey = `measurement_${i}` as MeasurementKeys;
+    const ingredientKey = `ingredient_${i}` as IngredientKeys;
+
+    const measurement = recipe[measurementKey];
+    const ingredient = recipe[ingredientKey];
+
     if (ingredient) {
       ingredients.push(`${measurement || ""} ${ingredient}`);
     }
@@ -31,7 +33,9 @@ async function RecipeDetail({ params }: RecipeDetailProps) {
 
   const directions = [];
   for (let i = 1; i <= 10; i++) {
-    const step = recipe[`directions_step_${i}`];
+    const stepKey = `directions_step_${i}` as DirectionStepKeys;
+    const step = recipe[stepKey];
+
     if (step) {
       directions.push(step);
     }
