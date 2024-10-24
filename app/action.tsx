@@ -7,7 +7,7 @@ export async function fetchRecipes(): Promise<RecipeProp[]> {
   const options = {
     method: 'GET',
     headers: {
-      'x-rapidapi-key': 'YOUR_RAPIDAPI_KEY', // Replace with your actual RapidAPI key
+      'x-rapidapi-key': '48cdfd658fmsh5eaf69f5f14797bp17ba54jsndf41e084a797',
       'x-rapidapi-host': 'keto-diet.p.rapidapi.com',
     },
   };
