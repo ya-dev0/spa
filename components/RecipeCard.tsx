@@ -9,7 +9,7 @@ export interface RecipeProp {
   image: string;
   difficulty: string;
   calories: number;
-
+  // Measurement properties
   measurement_1?: number | null;
   measurement_2?: number | null;
   measurement_3?: number | null;
@@ -20,6 +20,7 @@ export interface RecipeProp {
   measurement_8?: number | null;
   measurement_9?: number | null;
   measurement_10?: number | null;
+  // Ingredient properties
   ingredient_1?: string | null;
   ingredient_2?: string | null;
   ingredient_3?: string | null;
@@ -30,6 +31,7 @@ export interface RecipeProp {
   ingredient_8?: string | null;
   ingredient_9?: string | null;
   ingredient_10?: string | null;
+  // Direction steps
   directions_step_1?: string | null;
   directions_step_2?: string | null;
   directions_step_3?: string | null;
@@ -41,6 +43,11 @@ export interface RecipeProp {
   directions_step_9?: string | null;
   directions_step_10?: string | null;
 }
+
+
+type MeasurementKeys = `measurement_${1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10}`;
+type IngredientKeys = `ingredient_${1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10}`;
+type DirectionStepKeys = `directions_step_${1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10}`;
 
 interface Prop {
   recipeData: RecipeProp;
